@@ -1,0 +1,52 @@
+body {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 20rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2 {
+    font-size: 4rem;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid red;
+    font-size: 2rem;
+    padding: 10px;
+    background-color: transparent;
+}
+input:focus {
+    background-color: transparent;
+    border-bottom: 4px solid red;
+}
