@@ -8,7 +8,7 @@ async function getCityCoords(obj, city) {
   }
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72`
     );
     const data = await response.json();
 
@@ -25,7 +25,7 @@ async function getCityCoords(obj, city) {
 async function getMoreDaysWeather(obj, mode, lang) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${obj.lat}&lon=${obj.lon}&units=${mode}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72&lang=${lang}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${obj.lat}&lon=${obj.lon}&units=${mode}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72&lang=${lang}`
     );
     const data = await response.json();
 
@@ -47,7 +47,7 @@ async function getMoreDaysWeather(obj, mode, lang) {
 async function getTodayWeather(obj, mode, lang) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&units=${mode}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72&lang=${lang}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${obj.lat}&lon=${obj.lon}&units=${mode}&appid=0f9fd4e3b6ce5da76c6b0ef6385dbe72&lang=${lang}`
     );
     const data = await response.json();
 
