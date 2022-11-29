@@ -1,52 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+i {
+    pointer-events: none;
     color: red;
 }
 
-.loading {
-    position: absolute;
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;
+    justify-content: space-between;
+}
+.weather-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.4);
+    border-bottom: 2px solid rgba(0,0,0,0.7);
+}
+footer {
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+footer a {
+    color: white;
+}
+
+.loading,
+.error {
+    position: fixed;
+    z-index: 10;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10rem;
+    background-color: #121212;
+    font-size: 2rem;
+}
+.error {
+    color: red;
 }
 
+.weather-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.weather-more {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.more-day-block {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+}
+.more-date {
+    grid-column: 1/-1;
+}
+.more-temp {
+    font-size: 3rem;
+}
+.weather-main > div,
+.more-day-block {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/* temp block */
+.temp-block {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+.temp {
+    font-size: 4rem;
+}
+.weather-type {
+    align-self: center;
+    justify-self: center;
+}
+.feels-like {
+    grid-column:1 / span 2;
+    font-size: 1.3rem;
+}
+.feels-like > span {
+    margin-left: 20px;
+}
+
+
+/* location and date block */
+.location-date-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.location {
+    max-width: 250px;
+}
+.date-month {
+    font-size: 1rem;
+}
+.time {
+    font-size: 2rem;
+}
+
+.conditions-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+
+.change-city {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px;
+}
+.change-city > input {
+    background-color: transparent;
+    border: none;
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    border-bottom: 2px solid red;
+    caret-color: red;
+    color: white;
+}
+.change-city > input:focus {
+    outline: none;
+}
+.change-city label {
+    font-size: 1rem;
+}
+
+.sunrise-sunset-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.sunrise-sunset-block > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 10px;
+}
+
+
+.convert-temp,
+.btn-lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: white;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid;
+}
+.convert-temp:hover,
+.btn-lang:hover {
+    border: 2px solid red;
+}
+.convert-temp:active {
+    transform: scale(0.9);
+}
+
+div,
+label {
+    text-shadow: 1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black;
+}
 .hidden {
     display: none;
 }
 
-h1 {
-    font-size: 20rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-h2 {
-    font-size: 4rem;
-}
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-}
-input {
-    outline: none;
-    border: none;
-    border-bottom: 2px solid red;
-    font-size: 2rem;
-    padding: 10px;
-    background-color: transparent;
-}
-input:focus {
-    background-color: transparent;
-    border-bottom: 4px solid red;
+@media (max-width: 650px) {
+    .weather-cont {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
